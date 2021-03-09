@@ -1,11 +1,14 @@
-describe("Thermostat", function(){
+'use strict';
 
-    var thermostat;
-    beforeEach(function(){
-        thermostat = new Thermostat();
-    })
+describe('Thermostat', function() {
 
-    it("has a default tempurature of 20 degrees", function(){
-        expect(thermostat.tempurature).toEqual(20);
-    });
+  var thermostat;
+
+  beforeEach(function() {
+    thermostat = new Thermostat();
+  });
+
+  it('starts at 20 degrees', function() {
+    expect(thermostat.temperature).toEqual(20);
+  });
 });
