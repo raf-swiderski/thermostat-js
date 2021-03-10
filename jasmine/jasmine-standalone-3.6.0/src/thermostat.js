@@ -9,9 +9,11 @@ class Thermostat {
     increaseTemp() {
         if (this.temperature === 25 && this.powerSavingMode === true) {
             return this.temperature
+        } else if (this.temperature === 32 && this.powerSavingMode === false) {
+            return this.temperature
         } else {
             this.temperature += 1;
-        return this.temperature;
+            return this.temperature;
         }
     }
     decreaseTemp() {
@@ -25,6 +27,18 @@ class Thermostat {
     togglePowerSavingMode() {
         return this.powerSavingMode = !this.powerSavingMode
     };
+    resetTemp() {
+        this.temperature = 20;
+    };
+    getCurrentEnergyUsage() {
+        if (this.temperature < 18) {
+            return 'Low Usage'
+        } else if (this.temperature >= 18 && this.temperature <= 25) {
+            return 'Medium Usage'
+        } else {
+            return 'High Usage'
+        }
+    }
     
 
 };
