@@ -1,5 +1,3 @@
-'use strict';
-
 describe('Thermostat', function() {
 
   var thermostat;
@@ -35,15 +33,23 @@ describe('Thermostat', function() {
         thermostat.increaseTemp();
         expect(thermostat.getCurrentTemperature()).toEqual(25);
     });
+    describe('power-saving mode', function() {
+        
+        it(' is off by default', function() {
+            expect(thermostat.powerSavingMode).toBeFalsy();
+        });
+    
+        it('power-saving mode can be turned on', function() {
+            thermostat.powerSavingModeOn();
+            expect(thermostat.powerSavingMode).toBeTruthy();
+        });
 
-    it('power-saving mode is off by default', function() {
-        expect(thermostat.powerSavingMode).toBeFalsy();
-    });
-
-    it('power-saving mode can be toggled on and off', function() {
-        thermostat.togglePowerSavingMode();
-        expect(thermostat.powerSavingMode).toBeTruthy();
-    });
+        it('power-saving mode can be turned off', function() {
+            thermostat.powerSavingModeOff();
+            expect(thermostat.powerSavingMode).toBeFalsy();
+        });
+    })
+    
 
     it('has a max temperature of 32 degrees, if power-saving mode is off', function() {
         thermostat.temperature = 32;

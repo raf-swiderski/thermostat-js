@@ -6,6 +6,7 @@ class Thermostat {
     getCurrentTemperature() {
         return this.temperature;
     }
+
     increaseTemp() {
         if (this.temperature === 25 && this.powerSavingMode === true) {
             return this.temperature
@@ -24,8 +25,11 @@ class Thermostat {
             return this.temperature;
         }
     }
-    togglePowerSavingMode() {
-        return this.powerSavingMode = !this.powerSavingMode
+    powerSavingModeOn() {
+        this.powerSavingMode = true
+    };
+    powerSavingModeOff() {
+        this.powerSavingMode = false
     };
     resetTemp() {
         this.temperature = 20;
